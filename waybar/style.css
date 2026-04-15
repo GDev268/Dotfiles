@@ -1,0 +1,95 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+}
+
+window#waybar {
+    /* Silver Glass: Win97 color with modern transparency */
+    background-color: rgba(192, 192, 192, 0.75);
+    color: #222222;
+    border-radius: 8px; /* Soft MacOS-style rounding */
+
+    /* Subtle 3D Bevel effect using shadows */
+    box-shadow:
+        inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.8),
+        inset -1.5px -1.5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* LADO ESQUERDO */
+#clock {
+    padding: 0 15px;
+    margin: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    /* Sunken effect */
+    box-shadow:
+        inset 1px 1px 2px rgba(0, 0, 0, 0.15),
+        inset -1px -1px 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+#clock:hover {
+    background-color: rgba(0, 0, 128, 0.1); /* Classic Navy hint */
+}
+
+#window {
+    padding: 0 15px;
+    color: #444444;
+}
+
+/* CENTRO: Workspaces (Raised Buttons) */
+#workspaces button {
+    color: #333333;
+    padding: 0 10px;
+    margin: 4px 2px;
+    background-color: #c0c0c0;
+    /* The Iconic Raised Bevel */
+    box-shadow:
+        1px 1px 0px #808080,
+        -1px -1px 0px #ffffff;
+}
+
+#workspaces button.active {
+    background-color: #d4d4d4;
+    color: #000080; /* Classic Active Blue */
+    /* The Iconic Pressed Bevel */
+    box-shadow:
+        inset 1px 1px 0px #808080,
+        inset -1px -1px 0px #ffffff;
+}
+
+#workspaces button:hover {
+    background-color: #e0e0e0;
+}
+
+/* LADO DIREITO: Tray & Modules */
+#battery,
+#bluetooth,
+#network,
+#pulseaudio,
+#custom-notification,
+#custom-power {
+    padding: 0 10px;
+    margin: 4px 1px;
+    /* Minimalist separation */
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#tray {
+    padding: 0 10px;
+}
+
+#custom-power {
+    color: #a00000;
+    padding-right: 15px;
+}
+
+/* Tooltip Styling */
+tooltip {
+    background: #c0c0c0;
+    border: 2px solid #ffffff;
+    box-shadow: 2px 2px 0px #808080;
+}

@@ -1,0 +1,71 @@
+/* Fundo principal */
+window {
+    background-color: rgba(20, 25, 30, 0.8);
+}
+
+/* Container centralizado */
+grid {
+    background-color: transparent;
+}
+
+button {
+    background-color: #c0c0c0;
+    color: #000080;
+    border-radius: 0;
+    margin: 25px;
+
+    /* Forçando o formato quadrado */
+    min-width: 180px;
+    min-height: 180px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%; /* Ícone levemente maior para o quadrado */
+
+    font-family: "Inter", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    /* Bordas 3D Reais (Bevel) */
+    border-top: 4px solid #ffffff;
+    border-left: 4px solid #ffffff;
+    border-right: 4px solid #808080;
+    border-bottom: 4px solid #808080;
+
+    transition: all 0.1s ease-in-out;
+}
+
+/* Efeito Sunken (Botão pressionado/focado) */
+button:focus,
+button:active,
+button:hover {
+    background-color: #d4d4d4;
+    color: #0000ff;
+
+    border-top: 4px solid #808080;
+    border-left: 4px solid #808080;
+    border-right: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+
+    outline: none;
+}
+
+/* Definição das imagens */
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+}
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+}
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}

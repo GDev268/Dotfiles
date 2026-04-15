@@ -1,0 +1,139 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none; /* Reset global de sombras que causam brilho branco */
+    text-shadow: none;
+}
+
+window#waybar {
+    background-color: #1d2021;
+    color: #ebdbb2;
+    border-bottom: 2px solid #32302f;
+}
+
+/* --- LADO ESQUERDO --- */
+#clock {
+    padding: 0 15px;
+    background-color: #282828;
+    color: #fabd2f;
+    font-weight: bold;
+    min-width: 100px;
+    transition: all 0.2s ease-in-out;
+}
+
+#clock:hover {
+    background-color: #fabd2f;
+    color: #1d2021;
+}
+
+#window {
+    padding: 0 15px;
+    color: #a89984;
+}
+
+/* --- CENTRO (Workspaces) --- CORRIGIDO --- */
+#workspaces button {
+    color: #665c54;
+    background: transparent; /* Força remoção de gradientes */
+    background-color: transparent;
+    padding: 0 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #fabd2f;
+    background-color: #32302f;
+    border-bottom: 2px solid #fabd2f;
+}
+
+#workspaces button.urgent {
+    color: #fb4934;
+    background-color: #282828;
+}
+
+/* Esta é a parte que mata o branco e aplica o teu estilo */
+#workspaces button:hover {
+    background: #fabd2f; /*  anula o tema do sistema */
+    background-color: #fabd2f;
+    color: #1d2021;
+    box-shadow: none; /* Remove o "brilho" branco de foco */
+}
+
+#workspaces button.active:hover {
+    background: #fabd2f; /*  anula o tema do sistema */
+    background-color: #fabd2f;
+    color: #1d2021;
+    box-shadow: none;
+    border-bottom: 2px solid #282828;
+}
+
+/* --- LADO DIREITO --- */
+#battery,
+#bluetooth,
+#network,
+#pulseaudio,
+#backlight,
+#tray,
+#custom-notification,
+#custom-power {
+    padding: 0 12px;
+}
+
+#pulseaudio {
+    color: #83a598;
+}
+
+#pulseaudio.muted {
+    color: #fb4934;
+    background-color: #282828;
+}
+
+#network {
+    color: #b8bb26;
+}
+#bluetooth {
+    color: #83a598;
+}
+
+#tray {
+    margin-left: 10px;
+}
+
+#custom-notification {
+    color: #fabd2f;
+    background-color: #282828;
+}
+
+#custom-power {
+    color: #fb4934;
+    background-color: #32302f;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#custom-clock,
+#battery,
+#bluetooth,
+#network,
+#pulseaudio,
+#backlight,
+#custom-notification,
+#custom-power {
+    transition: all 0.2s ease;
+}
+
+#custom-clock:hover,
+#battery:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-notification:hover,
+#custom-power:hover {
+    background-color: #fabd2f;
+    color: #1d2021;
+}

@@ -1,0 +1,84 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    "modules-left": ["clock", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "battery", "bluetooth", "network", "pulseaudio", "custom/notification", "custom/power"],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true
+    },
+
+    "hyprland/window": {
+        "format": " \uf061  {title}",
+        "max-length": 35
+    },
+
+    "clock": {
+        "exec": "date +'%H:%M:%S'",
+        "interval": 1,
+        "format": " \uf017  {} ",
+        "tooltip": true,
+        "tooltip-format": "{:%d/%m/%Y}",
+        "on-click": "alacritty -t tui_menu -e calcurse"
+    },
+
+    "bluetooth": {
+        "format": " \uf293 ",
+        "on-click": "alacritty -t tui_menu -e bash -lc 'bluetui'"
+    },
+
+    "network": {
+        "format-wifi": " \uf1eb ",
+        "format-ethernet": " \uf0e8 ",
+        "on-click": "alacritty -t tui_menu -e nmtui"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " \uf026 Muted ",
+        "format-icons": {
+            "headphone": "\uf025",
+            "hands-free": "\uf2a0",
+            "headset": "\uf2a0",
+            "phone": "\uf095",
+            "portable": "\uf10b",
+            "car": "\uf1b9",
+            "default": ["\uf027", "\uf028"]
+        },
+        "on-click": "alacritty -t tui_menu -e bash -lc 'pulsemixer'"
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "\uf0e7 {capacity}%",
+        "format-plugged": "\uf1e6 {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+    },
+
+    "custom/power": {
+        "format": " \uf011 ",
+        "on-click": "wlogout"
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": " \uf0f3 ",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    }
+}

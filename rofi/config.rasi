@@ -1,0 +1,90 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "Search";
+    drun-display-format: "{name}";
+    font: "Inter Medium 11";
+}
+
+@theme "/dev/null"
+
+* {
+    /* Cinza clássico com transparência moderna */
+    bg:      rgba(192, 192, 192, 0.9);
+    bg-alt:  rgba(255, 255, 255, 0.5);
+    fg:      #000000;
+    accent:  #000080; /* Navy Blue do Win97 */
+    border-col: #808080; /* O cinza sombra clássico */
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 30%;
+    background-color: @bg;
+    border-radius: 10px;
+
+    /* Borda simples de 1px para evitar qualquer erro de parse */
+    border: 1px;
+    border-color: @border-col;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    padding: 15px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 6px;
+    children: [ prompt, entry ];
+    margin: 0 0 15px 0;
+    padding: 10px;
+
+    /* Borda simples para a caixa de busca */
+    border: 1px;
+    border-color: @border-col;
+}
+
+prompt {
+    text-color: @accent;
+    font: "Inter Bold 11";
+    padding: 0 10px 0 5px;
+}
+
+entry {
+    placeholder: "Find apps...";
+    placeholder-color: #666666;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: true;
+    spacing: 5px;
+}
+
+element {
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+element selected {
+    /* Destaque sutil com o azul icônico */
+    background-color: rgba(0, 0, 128, 0.1);
+    text-color: @accent;
+
+    /* Borda simples na seleção */
+    border: 1px;
+    border-color: @accent;
+}
+
+element-icon {
+    size: 24px;
+    padding: 0 12px 0 0;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
