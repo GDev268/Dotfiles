@@ -1,71 +1,50 @@
-/* Fundo principal */
+/**
+ * Configuração ultra-minimalista para o wlogout.
+ * Foca exclusivamente na tipografia e elimina elementos visuais pesados.
+ */
+
 window {
-    background-color: rgba(20, 25, 30, 0.8);
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.5
+    ); /* Fundo escuro suave para destacar o blur */
 }
 
-/* Container centralizado */
 grid {
-    background-color: transparent;
+    margin: 250px; /* Ajusta a centralização dos botões no ecrã */
 }
 
 button {
-    background-color: #c0c0c0;
-    color: #000080;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
     border-radius: 0;
-    margin: 25px;
+    margin: 15px;
 
-    /* Forçando o formato quadrado */
-    min-width: 180px;
-    min-height: 180px;
+    /* Removemos as imagens de fundo para evitar o aspeto desalinhado */
+    background-image: none;
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%; /* Ícone levemente maior para o quadrado */
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 22px;
+    font-weight: 500;
 
-    font-family: "Inter", "Arial", sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-
-    /* Bordas 3D Reais (Bevel) */
-    border-top: 4px solid #ffffff;
-    border-left: 4px solid #ffffff;
-    border-right: 4px solid #808080;
-    border-bottom: 4px solid #808080;
-
-    transition: all 0.1s ease-in-out;
+    box-shadow: none;
+    text-shadow: none;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Efeito Sunken (Botão pressionado/focado) */
+/* Efeito de seleção purista (apenas cor e brilho subtil) */
 button:focus,
 button:active,
 button:hover {
-    background-color: #d4d4d4;
-    color: #0000ff;
-
-    border-top: 4px solid #808080;
-    border-left: 4px solid #808080;
-    border-right: 4px solid #ffffff;
-    border-bottom: 4px solid #ffffff;
-
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f38ba8; /* Cor de destaque rosa/avermelhada condizente com o Rofi */
     outline: none;
 }
 
-/* Definição das imagens */
-#lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
-}
-#logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
-}
-#suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
-}
-#hibernate {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
-}
-#shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
-}
-#reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
-}
+/**
+ * Nota: Certifica-te de que o teu ficheiro 'layout' contém os nomes
+ * no campo "text" (ex: "Logout", "Reboot") para que apareçam sem ícones.
+ */

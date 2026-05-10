@@ -1,14 +1,15 @@
 {
     "layer": "top",
-    "position": "top",
-    "height": 34,
-    "margin-top": 4,
-    "margin-left": 12,
-    "margin-right": 12,
+    "position": "bottom",
+    "height": 28,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
 
-    "modules-left": ["clock", "hyprland/window"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["tray", "battery", "bluetooth", "network", "pulseaudio", "custom/notification", "custom/power"],
+    "modules-left": ["clock", "custom/sep", "hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["tray", "custom/sep", "network", "pulseaudio", "battery","bluetooth", "custom/sep", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -17,53 +18,55 @@
         "all-outputs": true
     },
 
-    "hyprland/window": {
-        "format": " \uf061  {title}",
-        "max-length": 35
-    },
-
     "clock": {
-        "exec": "date +'%H:%M:%S'",
-        "interval": 1,
-        "format": " \uf017  {} ",
-        "tooltip": true,
-        "tooltip-format": "{:%d/%m/%Y}",
-        "on-click": "alacritty -t tui_menu -e calcurse"
-    },
-
-    "bluetooth": {
-        "format": " \uf293 ",
-        "on-click": "alacritty -t tui_menu -e bash -lc 'bluetui'"
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%d of %B of %Y}"
     },
 
     "network": {
-        "format-wifi": " \uf1eb ",
-        "format-ethernet": " \uf0e8 ",
+        "format-wifi": " ",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰖪 ",
         "on-click": "alacritty -t tui_menu -e nmtui"
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": " \uf026 Muted ",
+        "format": "{icon}{volume}% ",
+        "format-muted": "󰝟 ",
         "format-icons": {
-            "default": ["\uf027", "\uf028"]
+            "default": [" ", " "]
         },
-        "on-click": "alacritty -t tui_menu -e bash -lc 'pulsemixer'"
+        "tooltip-format": "{volume}%",
+        "on-click": "alacritty --title tui_menu -e /home/gpc/.local/bin/pulsemixer"
     },
 
     "battery": {
-        "format": "{icon} {capacity}%",
-        "format-charging": "\uf0e7 {capacity}%",
-        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+        "format": "{icon} ",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/sep": {
+        "format": "•",
+        "tooltip": false
     },
 
     "custom/power": {
-        "format": " \uf011 ",
+        "format": " ",
         "on-click": "wlogout"
     },
 
-    "custom/notification": {
-        "format": " \uf0f3 ",
-        "on-click": "swaync-client -t -sw"
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": " off",
+        "format-connected": " {device_alias}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "alacritty --title tui_menu -e /home/gpc/.cargo/bin/bluetui"
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
     }
 }
