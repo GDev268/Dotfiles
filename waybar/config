@@ -9,7 +9,7 @@
 
     "modules-left": ["clock", "custom/sep", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/sep", "network", "pulseaudio", "battery","bluetooth", "custom/sep", "custom/power"],
+    "modules-right": ["tray", "custom/sep", "network", "pulseaudio", "battery", "bluetooth", "custom/sep", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -19,46 +19,46 @@
     },
 
     "clock": {
-        "format": "{:%H:%M}",
+        "format": "\uf017 {:%H:%M}",
         "tooltip-format": "{:%d of %B of %Y}"
     },
 
     "network": {
-        "format-wifi": " ",
-        "format-ethernet": "󰈀 ",
-        "format-disconnected": "󰖪 ",
+        "format-wifi": "\uf1eb ",
+        "format-ethernet": "\uf0e8 ",
+        "format-disconnected": "\uf071 ",
         "on-click": "alacritty -t tui_menu -e nmtui"
     },
 
     "pulseaudio": {
-        "format": "{icon}{volume}% ",
-        "format-muted": "󰝟 ",
+        "format": "{icon} {volume}%",
+        "format-muted": "\uf026 ",
         "format-icons": {
-            "default": [" ", " "]
+            "default": ["\uf027", "\uf028"]
         },
         "tooltip-format": "{volume}%",
         "on-click": "alacritty --title tui_menu -e /home/gpc/.local/bin/pulsemixer"
     },
 
     "battery": {
-        "format": "{icon} ",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{icon} {capacity}%",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
     },
 
     "custom/sep": {
-        "format": "•",
+        "format": "\u2022",
         "tooltip": false
     },
 
     "custom/power": {
-        "format": " ",
+        "format": "\uf011 ",
         "on-click": "wlogout"
     },
 
     "bluetooth": {
-        "format": " {status}",
-        "format-disabled": " off",
-        "format-connected": " {device_alias}",
+        "format": "\uf293 {status}",
+        "format-disabled": "\uf293 off",
+        "format-connected": "\uf293 {device_alias}",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
