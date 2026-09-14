@@ -1,50 +1,65 @@
 /**
- * Configuração ultra-minimalista para o wlogout.
- * Foca exclusivamente na tipografia e elimina elementos visuais pesados.
+ * Configuração purista e abstrata para o wlogout.
+ * Paleta: Preto Absoluto (#000000), Cinzento Ultra-Escuro (#121212), Cinzento Claro (#a0a0a0).
  */
 
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    border: none;
+    border-radius: 0;
+}
+
 window {
-    background-color: rgba(
-        0,
-        0,
-        0,
-        0.5
-    ); /* Fundo escuro suave para destacar o blur */
+    /* Fundo preto profundo com opacidade acentuada */
+    background-color: rgba(0, 0, 0, 0.92);
 }
 
 grid {
-    margin: 250px; /* Ajusta a centralização dos botões no ecrã */
+    margin: 200px 350px;
 }
 
 button {
-    background-color: transparent;
-    color: #ffffff;
-    border: none;
-    border-radius: 0;
-    margin: 15px;
+    background-color: #121212;
+    color: #444444;
+    border-left: 2px solid #222222;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    margin: 12px;
+    padding: 25px 0px;
 
-    /* Removemos as imagens de fundo para evitar o aspeto desalinhado */
     background-image: none;
 
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 2px;
 
     box-shadow: none;
     text-shadow: none;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Efeito de seleção purista (apenas cor e brilho subtil) */
+/* Efeito Hover: Deslocamento assimétrico e contraste em cinzento claro */
 button:focus,
 button:active,
 button:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #f38ba8; /* Cor de destaque rosa/avermelhada condizente com o Rofi */
+    background-color: #181818;
+    color: #a0a0a0;
+    border-left: 2px solid #a0a0a0;
+    margin-left: 20px;
     outline: none;
 }
 
-/**
- * Nota: Certifica-te de que o teu ficheiro 'layout' contém os nomes
- * no campo "text" (ex: "Logout", "Reboot") para que apareçam sem ícones.
- */
+/* Identificadores com numeração tipográfica discreta */
+#windows {
+    font-weight: 600;
+}
+
+#shutdown {
+    color: #333333;
+}
+
+#shutdown:hover {
+    color: #888888;
+    border-left-color: #888888;
+}

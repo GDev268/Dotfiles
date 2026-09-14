@@ -1,0 +1,37 @@
+
+    {
+        "label" : "windows",
+        "action" : "pkill -SIGTERM brave; sleep 1; hyprshutdown -t 'A reiniciar para o Windows...' -p '/home/gpc/reboot-to-windows.sh'",
+        "text" : "01 // Windows",
+        "keybind" : "w"
+    },
+    {
+        "label" : "hibernate",
+        "action" : "pkill -SIGTERM brave; sleep 1; hyprshutdown -t 'A hibernar...' -p 'systemctl hibernate'",
+        "text" : "02 // Hibernate",
+        "keybind" : "h"
+    },
+    {
+        "label" : "logout",
+        "action" : "pkill -SIGTERM brave; sleep 1; hyprshutdown -t 'A terminar sessão...'",
+        "text" : "03 // Logout",
+        "keybind" : "e"
+    },
+    {
+        "label" : "shutdown",
+        "action" : "pkill -SIGTERM brave; sleep 1; hyprshutdown -t 'A desligar...' -p 'systemctl poweroff'",
+        "text" : "04 // Shutdown",
+        "keybind" : "s"
+    },
+    {
+        "label" : "suspend",
+        "action" : "systemctl suspend",
+        "text" : "05 // Suspend",
+        "keybind" : "u"
+    },
+    {
+        "label" : "reboot",
+        "action" : "pkill -SIGTERM brave; sleep 1; hyprshutdown -t 'A reiniciar...' -p 'systemctl reboot'",
+        "text" : "06 // Reboot",
+        "keybind" : "r"
+    }
