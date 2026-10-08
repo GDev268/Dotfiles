@@ -36,57 +36,79 @@ local function aplicar_configuracoes()
     })
 end
 
---- Regista as curvas bezier para as animações personalizadas.
+
+--- Registra as curvas bezier para as animações personalizadas (Inspirado em macOS/Windows 11).
 local function configurar_curvas_animacao()
-    hl.curve("macOS", {
+    -- macOS style: Smooth fast start with an extended soft deceleration
+    hl.curve("macEase", {
         type = "bezier",
-        points = {{0.25, 1}, {0.5, 1}}
+        points = {{0.16, 1.0}, {0.3, 1.0}}
     })
-    hl.curve("workspaceBounce", {
+
+    -- Fluent Design (Windows 11): Subtle overshoot for responsive UI elements
+    hl.curve("fluentDecel", {
         type = "bezier",
-        points = {{0.2, 1.1}, {0.3, 1.05}}
+        points = {{0.05, 0.9}, {0.1, 1.05}}
+    })
+
+    -- Smooth linear-to-decelerate for subtle background/fade shifts
+    hl.curve("subtleEase", {
+        type = "bezier",
+        points = {{0.25, 1.0}, {0.5, 1.0}}
     })
 end
 
 --- Define as regras de animação para elementos da interface.
 local function aplicar_animacoes()
+    -- Smooth window opening (macOS-style subtle zoom scale)
     hl.animation({
         leaf = "windows",
         enabled = true,
-        speed = 4,
-        bezier = "macOS",
-        style = "popin 85%"
+        speed = 5,
+        bezier = "macEase",
+        style = "popin 92%"
     })
+
+    -- Graceful window closing
     hl.animation({
         leaf = "windowsOut",
         enabled = true,
         speed = 4,
-        bezier = "macOS",
-        style = "popin 85%"
+        bezier = "subtleEase",
+        style = "popin 88%"
     })
+
+    -- Fluid window movement/tiling rearrangements
     hl.animation({
         leaf = "windowsMove",
         enabled = true,
-        speed = 4,
-        bezier = "macOS"
+        speed = 5,
+        bezier = "macEase"
     })
+
+    -- Desktop workspace switching (Windows 11 slide feel)
     hl.animation({
         leaf = "workspaces",
         enabled = true,
-        speed = 4,
-        bezier = "macOS",
-        style = "fade"
+        speed = 6,
+        bezier = "macEase",
+        style = "slide"
     })
+
+    -- Subtle border glow transitions on focus
     hl.animation({
         leaf = "border",
         enabled = true,
-        speed = 3,
-        bezier = "default"
+        speed = 4,
+        bezier = "subtleEase"
     })
+
+    -- Smooth crossfade for transparency changes
     hl.animation({
         leaf = "fade",
-        enabled = false,
-        speed = 0
+        enabled = true,
+        speed = 4,
+        bezier = "subtleEase"
     })
 end
 
